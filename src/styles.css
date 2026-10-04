@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body, #root { width: 100%; height: 100%; margin: 0; }
+body { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+
+@layer components {
+  .field { @apply rounded-md border border-white/10 bg-raised px-3 py-2 text-slate-100 outline-none placeholder:text-slate-500 focus:border-accent; }
+  .field-label { @apply mb-1 block text-xs font-medium text-slate-300; }
+  .primary-button { @apply rounded-md bg-accent px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-emerald-200; }
+  .secondary-button { @apply rounded-md border border-white/15 bg-raised px-4 py-2 text-sm text-slate-100 hover:bg-white/10; }
+  .toolbar-button { @apply rounded border border-white/10 px-2 py-1 text-xs text-slate-300 hover:bg-raised hover:text-white; }
+  .session-action { @apply flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-xs text-slate-200 hover:bg-raised hover:text-white; }
+  .icon-button { @apply flex h-8 w-8 items-center justify-center rounded text-lg text-slate-400 hover:bg-raised hover:text-white; }
+  .text-link { @apply text-xs text-accent hover:underline; }
+  .session-item { @apply flex w-full items-start gap-3 rounded-xl px-3 py-3 transition-colors hover:bg-raised/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50; }
+  .session-item-active { @apply bg-raised ring-1 ring-white/10; }
+  .status-dot { @apply mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-slate-500; }
+  .status-running { @apply bg-emerald-400; }
+  .status-idle { @apply bg-slate-400; }
+  .status-disconnected { @apply bg-sky-400; }
+  .status-dead { @apply bg-slate-500; }
+  .status-error { @apply bg-rose-400; }
+  .status-hostUnavailable { @apply bg-amber-400; }
+  .dialog-backdrop { @apply fixed inset-0 z-30 flex items-center justify-center bg-black/70 p-5; }
+  .dialog { @apply max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-xl border border-white/10 bg-panel p-6 shadow-2xl; }
+  .subform { @apply space-y-2 rounded-lg border border-white/10 bg-canvas p-4; }
+  .error-box { @apply rounded border border-rose-500/30 bg-rose-950/50 p-3 text-sm text-rose-200; }
+}
+
+.terminal-container .xterm { height: 100%; }
+.terminal-container .xterm-viewport { scrollbar-color: #425268 #10151d; }
+.chat-viewport { overscroll-behavior: contain; scrollbar-gutter: stable; }
+.chat-markdown p + p,
+.chat-markdown p + ul,
+.chat-markdown p + ol,
+.chat-markdown ul + p,
+.chat-markdown ol + p { margin-top: .75rem; }
+.chat-markdown h1 { margin: 1.2rem 0 .55rem; font-size: 1.35rem; font-weight: 700; }
+.chat-markdown h2 { margin: 1.1rem 0 .5rem; font-size: 1.15rem; font-weight: 700; }
+.chat-markdown h3 { margin: 1rem 0 .4rem; font-size: 1rem; font-weight: 650; }
+.chat-markdown ul { list-style: disc; padding-left: 1.5rem; }
+.chat-markdown ol { list-style: decimal; padding-left: 1.5rem; }
+.chat-markdown li { margin-top: .25rem; }
+.chat-markdown blockquote { margin: .8rem 0; border-left: 3px solid #7cd4b0; padding-left: 1rem; color: #aab8c9; }
+.chat-markdown hr { margin: 1rem 0; border-color: rgba(255, 255, 255, .15); }
+.chat-markdown input[type="checkbox"] { margin-right: .4rem; accent-color: #7cd4b0; }

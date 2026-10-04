@@ -1,0 +1,38 @@
+[package]
+name = "copilot-remote-ui"
+version = "0.1.0"
+description = "Remote Copilot SDK chats and persistent tmux terminals"
+authors = ["Pankaj Dagar"]
+license = "MIT"
+edition = "2021"
+
+[lib]
+name = "copilot_remote_ui_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "process", "net", "sync", "time"] }
+github-copilot-sdk = "=1.0.14"
+glob = "0.3"
+async-trait = "0.1"
+portable-pty = "0.9"
+shell-words = "1"
+rusqlite = { version = "0.37", features = ["bundled"] }
+ulid = "1"
+anyhow = "1"
+thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+url = "2"
+hex = "0.4"
+percent-encoding = "2"
+sha2 = "0.10"
+
+[dev-dependencies]
+tempfile = "3"
